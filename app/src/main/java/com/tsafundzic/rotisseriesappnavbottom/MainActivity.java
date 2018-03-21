@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.tsafundzic.rotisseriesappnavbottom.customer.CustomerLoginFragment;
 import com.tsafundzic.rotisseriesappnavbottom.customer.CustomerRegistrationFragment;
+import com.tsafundzic.rotisseriesappnavbottom.worker.WorkerLoginFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,21 +48,21 @@ public class MainActivity extends AppCompatActivity {
                                 fragmentTransaction = getSupportFragmentManager().beginTransaction();
                                 fragmentTransaction.replace(R.id.fragmentFrameHome, fragment);
                                 fragmentTransaction.commit();
-                                return true;
+                                break;
                             case R.id.menuCustomerRegistration:
                                 setTitle(R.string.customer_registration); //this will set title of Action Bar
                                 fragment = new CustomerRegistrationFragment();
                                 fragmentTransaction = getSupportFragmentManager().beginTransaction();
                                 fragmentTransaction.replace(R.id.fragmentFrameHome, fragment);
                                 fragmentTransaction.commit();
-                                return true;
+                                break;
                             case R.id.menuWorkerLogin:
                                 setTitle(R.string.worker_login); //this will set title of Action Bar
-                                fragment = new CustomerRegistrationFragment();
+                                fragment = new WorkerLoginFragment();
                                 fragmentTransaction = getSupportFragmentManager().beginTransaction();
                                 fragmentTransaction.replace(R.id.fragmentFrameHome, fragment);
                                 fragmentTransaction.commit();
-                                return true;
+                                break;
                         }
                         return false;
                     }

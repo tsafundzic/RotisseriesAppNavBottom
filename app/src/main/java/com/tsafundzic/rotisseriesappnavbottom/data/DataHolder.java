@@ -18,7 +18,6 @@ import static com.tsafundzic.rotisseriesappnavbottom.data.Data.createWorkers;
 
 public class DataHolder {
 
-
     private static final DataHolder instance = new DataHolder();
 
     private DataHolder() {
@@ -79,7 +78,6 @@ public class DataHolder {
     public void setCustomerBalance(Customer customer, double customerBalance){
         customer.setBalance(customerBalance);
     }
-
 
     public void addProduct(Product product) {
         products.add(product);

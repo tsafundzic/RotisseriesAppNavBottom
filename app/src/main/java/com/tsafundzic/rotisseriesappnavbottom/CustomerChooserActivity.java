@@ -36,8 +36,6 @@ public class CustomerChooserActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.fragmentFrameCustomerChooser, fragment);
         fragmentTransaction.commit();
 
-        Customer loggedCustomer = DataHolder.getInstance().getLoggedCustomer();
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.customerChooserNavigationBottom);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(

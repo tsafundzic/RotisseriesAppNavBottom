@@ -1,4 +1,4 @@
-package com.tsafundzic.rotisseriesappnavbottom;
+package com.tsafundzic.rotisseriesappnavbottom.customer;
 
 
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.tsafundzic.rotisseriesappnavbottom.CustomerChooserActivity;
+import com.tsafundzic.rotisseriesappnavbottom.R;
 import com.tsafundzic.rotisseriesappnavbottom.data.DataHolder;
 import com.tsafundzic.rotisseriesappnavbottom.model.Customer;
 
@@ -64,8 +66,9 @@ public class CustomerLoginFragment extends Fragment implements View.OnClickListe
                 if (inputedCustomerID == customer.getId() && inputedCustomerPassword.equals(customer.getPassword())) {
                     Toast.makeText(getContext(), R.string.logged_as_customer, Toast.LENGTH_SHORT).show();
 
+                    DataHolder.getInstance().setLoggedCustomerBasedOnID(customer.getId());
+
                     Intent startCustomerChooseActivity = new Intent(getContext(), CustomerChooserActivity.class);
-                    startCustomerChooseActivity.putExtra("CUSTOMER_ID", customer.getId());
                     startActivity(startCustomerChooseActivity);
                 }
             }

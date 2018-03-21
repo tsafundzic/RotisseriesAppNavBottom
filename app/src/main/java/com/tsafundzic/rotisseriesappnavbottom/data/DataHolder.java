@@ -29,6 +29,8 @@ public class DataHolder {
     private static final List<Customer> customers = createCustomers();
     private static final List<ProductAmount> productAmounts = new ArrayList<>();
 
+    private Customer loggedCustomer;
+
     public static DataHolder getInstance() {
         return instance;
     }
@@ -53,14 +55,16 @@ public class DataHolder {
         customers.add(customer);
     }
 
-    public Customer getCustomerBasedOnCustomerID(int customerID) {
-        Customer loggedCustomer = null;
+    public Customer getLoggedCustomer() {
+          return loggedCustomer;
+    }
+
+    public void setLoggedCustomerBasedOnID(int customerID){
         for (Customer customer : customers) {
             if (customer.getId() == customerID) {
                 loggedCustomer = customer;
             }
         }
-        return loggedCustomer;
     }
 
     public int getLastProductID() {

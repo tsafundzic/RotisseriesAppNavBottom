@@ -10,7 +10,6 @@ public class WorkerChooserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_worker_chooser);
 
-
         setTitle(R.string.worker_menu);
 
         setUI();

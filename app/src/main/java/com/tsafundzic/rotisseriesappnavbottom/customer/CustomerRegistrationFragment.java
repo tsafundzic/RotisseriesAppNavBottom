@@ -1,8 +1,9 @@
-package com.tsafundzic.rotisseriesappnavbottom;
+package com.tsafundzic.rotisseriesappnavbottom.customer;
 
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.tsafundzic.rotisseriesappnavbottom.R;
 import com.tsafundzic.rotisseriesappnavbottom.data.DataHolder;
 import com.tsafundzic.rotisseriesappnavbottom.model.Customer;
 
@@ -68,6 +70,12 @@ public class CustomerRegistrationFragment extends Fragment implements View.OnCli
             Customer customer = new Customer(DataHolder.getInstance().getCustomersSize() + 1, customerName.getText().toString(), customerSurname.getText().toString(), customerPassword.getText().toString(), 0);
             DataHolder.getInstance().addNewCustomer(customer);
             Toast.makeText(getContext(), R.string.new_cutomer_created, Toast.LENGTH_SHORT).show();
+
+            Fragment fragment = new CustomerLoginFragment();
+            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragmentFrameHome, fragment);
+            fragmentTransaction.commit();
+
         } else {
             Toast.makeText(getContext(), R.string.password_doesnt_match, Toast.LENGTH_SHORT).show();
         }

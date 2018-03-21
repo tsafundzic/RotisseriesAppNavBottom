@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.tsafundzic.rotisseriesappnavbottom.customer.CustomerLoginFragment;
+import com.tsafundzic.rotisseriesappnavbottom.customer.CustomerRegistrationFragment;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -23,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUI() {
         setTitle(R.string.app_name);
-        fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragment = new CustomerLoginFragment();
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragmentFrameHome, fragment);
         fragmentTransaction.commit();
 

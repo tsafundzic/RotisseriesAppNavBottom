@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuCustomerLogin"
+        android:icon="@drawable/ic_user_login"
+        android:title="@string/login" />
+
+    <item
+        android:id="@+id/menuCustomerRegistration"
+        android:icon="@drawable/ic_customer_registration"
+        android:title="@string/customer_registration" />
+
+    <item
+        android:id="@+id/menuWorkerLogin"
+        android:icon="@drawable/ic_user_login"
+        android:title="@string/worker_login" />
+
+</menu>

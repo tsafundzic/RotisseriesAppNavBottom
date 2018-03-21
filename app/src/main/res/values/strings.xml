@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">RotisseriesApp</string>
+    <string name="cutomer_login">Customer Login</string>
+    <string name="customer_registration">Customer Registration</string>
+    <string name="worker_login">Worker Login</string>
+    <string name="customer_id">Customer ID</string>
+    <string name="password">Password</string>
+    <string name="worker_id">Worker Id</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="password_again">Password Again</string>
+    <string name="logged_as_worker">Logged as worker</string>
+    <string name="wrong_input">Wrong input</string>
+    <string name="logged_as_customer">Logged as customer</string>
+    <string name="password_doesnt_match">Password does not match</string>
+    <string name="new_cutomer_created">New customer created</string>
+    <string name="register">Register</string>
+    <string name="customer_id_text">Customer ID:</string>
+    <string name="you_must_input_something">You must input something</string>
+    <string name="check_balance">Check balance</string>
+    <string name="add_money_to_balance">Add money to balance</string>
+    <string name="buy_products">Buy products</string>
+    <string name="add_new_product">Add new product</string>
+    <string name="delete_product">Delete products</string>
+    <string name="add_new_worker">Add new worker</string>
+    <string name="product_name">Product name</string>
+    <string name="product_price">Product price</string>
+    <string name="worker_id_text">Worker ID:</string>
+    <string name="worker_name">Worker name</string>
+    <string name="worker_surname">Worker surname</string>
+    <string name="worker_password">Worker password</string>
+    <string name="worker_salary">Worker salary</string>
+    <string name="new_worker_created">New worker created</string>
+    <string name="product_added">Product added</string>
+    <string name="delete">Delete</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="zero">0</string>
+    <string name="you_dont_have_money">You dont have money</string>
+    <string name="worker_menu">Worker menu</string>
+    <string name="login">Login</string>
+    <string name="add_money">Add money</string>
+    <string name="customer_menu">Customer menu</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="current_balance">Current balance</string>
+</resources>

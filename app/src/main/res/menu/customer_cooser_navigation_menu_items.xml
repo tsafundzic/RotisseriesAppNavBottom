@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuCheckBalance"
+        android:icon="@drawable/ic_customer_balance"
+        android:title="@string/check_balance" />
+
+    <item
+        android:id="@+id/menuAddMoneyToBalance"
+        android:icon="@drawable/ic_add_money"
+        android:title="@string/add_money_to_balance" />
+
+    <item
+        android:id="@+id/menuBuyProducts"
+        android:icon="@drawable/ic_customer_buy"
+        android:title="@string/buy_products" />
+
+</menu>

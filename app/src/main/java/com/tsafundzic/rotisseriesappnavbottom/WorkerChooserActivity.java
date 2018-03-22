@@ -29,9 +29,7 @@ public class WorkerChooserActivity extends AppCompatActivity {
         setTitle(R.string.worker_menu);
 
         fragment = new WorkerAddNewProductFragment();
-        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentFrameWorkerChooser, fragment);
-        fragmentTransaction.commit();
+        ChangeFragments.changeWorkerFragment(fragment, WorkerChooserActivity.this);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.workerChooserNavigationBottom);
 
@@ -42,24 +40,17 @@ public class WorkerChooserActivity extends AppCompatActivity {
                     case R.id.menuAddNewProduct:
                         setTitle(R.string.add_new_product);
                         fragment = new WorkerAddNewProductFragment();
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.fragmentFrameWorkerChooser, fragment);
-                        fragmentTransaction.commit();
+                        ChangeFragments.changeWorkerFragment(fragment, WorkerChooserActivity.this);
                         break;
                     case R.id.menuDeleteProduct:
                         setTitle(R.string.delete_product);
                         fragment = new WorkerDeleteProductFragment();
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.fragmentFrameWorkerChooser, fragment);
-                        fragmentTransaction.commit();
+                        ChangeFragments.changeWorkerFragment(fragment, WorkerChooserActivity.this);
                         break;
                     case R.id.menuAddNewWorker:
                         setTitle(R.string.add_new_worker);
                         fragment = new WorkerAddNewWorkerFragment();
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.fragmentFrameWorkerChooser, fragment);
-                        fragmentTransaction.commit();
-
+                        ChangeFragments.changeWorkerFragment(fragment, WorkerChooserActivity.this);
                         break;
                 }
                 return true;

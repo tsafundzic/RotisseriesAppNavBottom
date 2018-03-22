@@ -32,9 +32,7 @@ public class CustomerChooserActivity extends AppCompatActivity {
 
         setTitle(R.string.check_balance);
         fragment = new CustomerBalanceFragment();
-        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentFrameCustomerChooser, fragment);
-        fragmentTransaction.commit();
+        ChangeFragments.changeCustomerFragment(fragment, CustomerChooserActivity.this);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.customerChooserNavigationBottom);
 
@@ -46,23 +44,17 @@ public class CustomerChooserActivity extends AppCompatActivity {
                             case R.id.menuCheckBalance:
                                 setTitle(R.string.check_balance);
                                 fragment = new CustomerBalanceFragment();
-                                fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                                fragmentTransaction.replace(R.id.fragmentFrameCustomerChooser, fragment);
-                                fragmentTransaction.commit();
+                                ChangeFragments.changeCustomerFragment(fragment, CustomerChooserActivity.this);
                                 break;
                             case R.id.menuAddMoneyToBalance:
                                 setTitle(R.string.add_money);
                                 fragment = new CustomerAddMoneyToBalanceFragment();
-                                fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                                fragmentTransaction.replace(R.id.fragmentFrameCustomerChooser, fragment);
-                                fragmentTransaction.commit();
+                                ChangeFragments.changeCustomerFragment(fragment, CustomerChooserActivity.this);
                                 break;
                             case R.id.menuBuyProducts:
                                 setTitle(R.string.buy_products);
                                 fragment = new CustomerBuyProductsFragment();
-                                fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                                fragmentTransaction.replace(R.id.fragmentFrameCustomerChooser, fragment);
-                                fragmentTransaction.commit();
+                                ChangeFragments.changeCustomerFragment(fragment, CustomerChooserActivity.this);
                                 break;
                         }
                         return true;

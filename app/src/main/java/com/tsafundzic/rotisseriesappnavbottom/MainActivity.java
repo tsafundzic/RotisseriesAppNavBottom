@@ -28,9 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private void setUI() {
         setTitle(R.string.app_name);
         fragment = new CustomerLoginFragment();
-        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentFrameHome, fragment);
-        fragmentTransaction.commit();
+        ChangeFragments.changeMainFragment(fragment, MainActivity.this);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.homeBottomNavigationItems);
 
@@ -43,25 +41,19 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.menuCustomerLogin:
-                                setTitle(R.string.login); //this will set title of Action Bar
+                                setTitle(R.string.login);
                                 fragment = new CustomerLoginFragment();
-                                fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                                fragmentTransaction.replace(R.id.fragmentFrameHome, fragment);
-                                fragmentTransaction.commit();
+                                ChangeFragments.changeMainFragment(fragment, MainActivity.this);
                                 break;
                             case R.id.menuCustomerRegistration:
-                                setTitle(R.string.customer_registration); //this will set title of Action Bar
+                                setTitle(R.string.customer_registration);
                                 fragment = new CustomerRegistrationFragment();
-                                fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                                fragmentTransaction.replace(R.id.fragmentFrameHome, fragment);
-                                fragmentTransaction.commit();
+                                ChangeFragments.changeMainFragment(fragment, MainActivity.this);
                                 break;
                             case R.id.menuWorkerLogin:
-                                setTitle(R.string.worker_login); //this will set title of Action Bar
+                                setTitle(R.string.worker_login);
                                 fragment = new WorkerLoginFragment();
-                                fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                                fragmentTransaction.replace(R.id.fragmentFrameHome, fragment);
-                                fragmentTransaction.commit();
+                                ChangeFragments.changeMainFragment(fragment, MainActivity.this);
                                 break;
                         }
                         return false;
@@ -69,4 +61,5 @@ public class MainActivity extends AppCompatActivity {
 
                 });
     }
+
 }

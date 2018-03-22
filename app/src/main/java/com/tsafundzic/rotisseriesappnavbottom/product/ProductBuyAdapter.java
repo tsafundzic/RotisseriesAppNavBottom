@@ -19,6 +19,7 @@ import java.util.List;
  */
 
 public class ProductBuyAdapter extends RecyclerView.Adapter<ProductBuyAdapter.ViewHolder> {
+
     List<Product> products = DataHolder.getInstance().getProducts();
     List<ProductAmount> productAmounts = DataHolder.getInstance().getProductAmounts();
 

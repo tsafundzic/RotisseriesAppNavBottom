@@ -1,6 +1,7 @@
 package com.tsafundzic.rotisseriesappnavbottom.customer;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -33,13 +34,14 @@ public class CustomerBalanceFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_customer_balance, container, false);
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         customerBalance = view.findViewById(R.id.tvCustomerBalance);
 
-        customerBalance.setText(String.valueOf(customer.getBalance()));
+        customerBalance.setText(String.format("%.2f", customer.getBalance()));
     }
 
 }

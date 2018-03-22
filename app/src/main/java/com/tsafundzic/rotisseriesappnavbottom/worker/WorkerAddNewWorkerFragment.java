@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.tsafundzic.rotisseriesappnavbottom.R;
 import com.tsafundzic.rotisseriesappnavbottom.data.DataHolder;
 import com.tsafundzic.rotisseriesappnavbottom.model.Worker;
+import com.tsafundzic.rotisseriesappnavbottom.utils.ValidationUtils;
 
 
 /**
@@ -60,13 +61,13 @@ public class WorkerAddNewWorkerFragment extends Fragment implements View.OnClick
 
     @Override
     public void onClick(View view) {
-        if (workerName.getText().toString().isEmpty()) {
+        if (ValidationUtils.isInputValid(workerName.getText().toString())) {
             workerName.setError(getText(R.string.you_must_input_something));
-        } else if (workerSurname.getText().toString().isEmpty()) {
+        } else if (ValidationUtils.isInputValid(workerSurname.getText().toString())) {
             workerSurname.setError(getText(R.string.you_must_input_something));
-        } else if (workerPassword.getText().toString().isEmpty()) {
+        } else if (ValidationUtils.isInputValid(workerPassword.getText().toString())) {
             workerPassword.setError(getText(R.string.you_must_input_something));
-        } else if (workerSalary.getText().toString().isEmpty()) {
+        } else if (ValidationUtils.isInputValid(workerSalary.getText().toString())) {
             workerSalary.setError(getText(R.string.you_must_input_something));
         } else {
             Worker worker = new Worker(DataHolder.getInstance().getWorkerSize() + 1, workerName.getText().toString(), workerSurname.getText().toString(), workerPassword.getText().toString(), Double.parseDouble(workerSalary.getText().toString()));

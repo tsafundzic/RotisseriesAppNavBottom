@@ -15,6 +15,7 @@ import com.tsafundzic.rotisseriesappnavbottom.CustomerChooserActivity;
 import com.tsafundzic.rotisseriesappnavbottom.R;
 import com.tsafundzic.rotisseriesappnavbottom.data.DataHolder;
 import com.tsafundzic.rotisseriesappnavbottom.model.Customer;
+import com.tsafundzic.rotisseriesappnavbottom.utils.ValidationUtils;
 
 import java.util.List;
 
@@ -49,14 +50,13 @@ public class CustomerLoginFragment extends Fragment implements View.OnClickListe
         customerPassword = view.findViewById(R.id.etCustomerPassword);
         customerLogin = view.findViewById(R.id.btnCustomerLogin);
         customerLogin.setOnClickListener(this);
-
     }
 
     @Override
     public void onClick(View view) {
-        if (customerID.getText().toString().isEmpty()) {
+        if (ValidationUtils.isInputValid(customerID.getText().toString())) {
             customerID.setError(getText(R.string.you_must_input_something));
-        } else if (customerPassword.getText().toString().isEmpty()) {
+        } else if (ValidationUtils.isInputValid(customerPassword.getText().toString())) {
             customerPassword.setError(getText(R.string.you_must_input_something));
         } else {
             int inputedCustomerID = Integer.parseInt(customerID.getText().toString());
@@ -68,7 +68,7 @@ public class CustomerLoginFragment extends Fragment implements View.OnClickListe
 
                     DataHolder.getInstance().setLoggedCustomerBasedOnID(customer.getId());
 
-                    Intent startCustomerChooseActivity = new Intent(getContext(), CustomerChooserActivity.class);
+                    Intent startCustomerChooseActivity = new Intent(getActivity(), CustomerChooserActivity.class);
                     startActivity(startCustomerChooseActivity);
                 }
             }

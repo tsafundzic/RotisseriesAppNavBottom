@@ -1,21 +1,16 @@
 package com.tsafundzic.rotisseriesappnavbottom;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.tsafundzic.rotisseriesappnavbottom.utils.BaseActivity;
 import com.tsafundzic.rotisseriesappnavbottom.worker.WorkerAddNewProductFragment;
 import com.tsafundzic.rotisseriesappnavbottom.worker.WorkerAddNewWorkerFragment;
 import com.tsafundzic.rotisseriesappnavbottom.worker.WorkerDeleteProductFragment;
 
-public class WorkerChooserActivity extends AppCompatActivity {
-
-    Fragment fragment = null;
-    FragmentTransaction fragmentTransaction;
+public class WorkerChooserActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +23,7 @@ public class WorkerChooserActivity extends AppCompatActivity {
     private void setUI() {
         setTitle(R.string.worker_menu);
 
-        fragment = new WorkerAddNewProductFragment();
-        ChangeFragments.changeWorkerFragment(fragment, WorkerChooserActivity.this);
+        changeFragments(R.id.fragmentFrameWorkerChooser, new WorkerAddNewProductFragment(), this);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.workerChooserNavigationBottom);
 
@@ -39,18 +33,15 @@ public class WorkerChooserActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.menuAddNewProduct:
                         setTitle(R.string.add_new_product);
-                        fragment = new WorkerAddNewProductFragment();
-                        ChangeFragments.changeWorkerFragment(fragment, WorkerChooserActivity.this);
+                        changeFragments(R.id.fragmentFrameWorkerChooser, new WorkerAddNewProductFragment(), WorkerChooserActivity.this);
                         break;
                     case R.id.menuDeleteProduct:
                         setTitle(R.string.delete_product);
-                        fragment = new WorkerDeleteProductFragment();
-                        ChangeFragments.changeWorkerFragment(fragment, WorkerChooserActivity.this);
+                        changeFragments(R.id.fragmentFrameWorkerChooser, new WorkerDeleteProductFragment(), WorkerChooserActivity.this);
                         break;
                     case R.id.menuAddNewWorker:
                         setTitle(R.string.add_new_worker);
-                        fragment = new WorkerAddNewWorkerFragment();
-                        ChangeFragments.changeWorkerFragment(fragment, WorkerChooserActivity.this);
+                        changeFragments(R.id.fragmentFrameWorkerChooser, new WorkerAddNewWorkerFragment(), WorkerChooserActivity.this);
                         break;
                 }
                 return true;

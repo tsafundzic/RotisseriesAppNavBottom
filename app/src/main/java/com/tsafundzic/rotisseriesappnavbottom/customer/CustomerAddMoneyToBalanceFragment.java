@@ -3,7 +3,6 @@ package com.tsafundzic.rotisseriesappnavbottom.customer;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,15 +10,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.tsafundzic.rotisseriesappnavbottom.utils.BaseFragment;
 import com.tsafundzic.rotisseriesappnavbottom.R;
 import com.tsafundzic.rotisseriesappnavbottom.data.DataHolder;
 import com.tsafundzic.rotisseriesappnavbottom.model.Customer;
+import com.tsafundzic.rotisseriesappnavbottom.utils.ValidationUtils;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CustomerAddMoneyToBalanceFragment extends Fragment implements View.OnClickListener {
+public class CustomerAddMoneyToBalanceFragment extends BaseFragment implements View.OnClickListener {
 
     EditText inputedAmountToAddToBalance;
     Button addMoneyToBalance;
@@ -51,7 +52,7 @@ public class CustomerAddMoneyToBalanceFragment extends Fragment implements View.
     public void onClick(View view) {
         double currentCustomerBalance = DataHolder.getInstance().returnCurrentCustomerBalance(customer);
 
-        if (inputedAmountToAddToBalance.getText().toString().isEmpty()) {
+        if (ValidationUtils.isInputValid(inputedAmountToAddToBalance.getText().toString())) {
             Toast.makeText(getActivity(), getText(R.string.you_must_input_something), Toast.LENGTH_SHORT).show();
         } else {
             double moneyAmountToAdd = Double.parseDouble(inputedAmountToAddToBalance.getText().toString());
@@ -59,10 +60,7 @@ public class CustomerAddMoneyToBalanceFragment extends Fragment implements View.
             customer.setBalance(currentCustomerBalance + moneyAmountToAdd);
             Toast.makeText(getActivity(), R.string.successful, Toast.LENGTH_SHORT).show();
 
-            Fragment fragment = new CustomerBalanceFragment();
-            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragmentFrameCustomerChooser, fragment);
-            fragmentTransaction.commit();
+            BaseFragment.changeFragments(R.id.fragmentFrameCustomerChooser, new CustomerBalanceFragment(), getActivity());
         }
     }
 }

@@ -15,6 +15,7 @@ import com.tsafundzic.rotisseriesappnavbottom.R;
 import com.tsafundzic.rotisseriesappnavbottom.WorkerChooserActivity;
 import com.tsafundzic.rotisseriesappnavbottom.data.DataHolder;
 import com.tsafundzic.rotisseriesappnavbottom.model.Worker;
+import com.tsafundzic.rotisseriesappnavbottom.utils.ValidationUtils;
 
 import java.util.List;
 
@@ -54,9 +55,9 @@ public class WorkerLoginFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-        if (workerID.getText().toString().isEmpty()) {
+        if (ValidationUtils.isInputValid(workerID.getText().toString())) {
             workerID.setError(getText(R.string.you_must_input_something));
-        } else if (workerPassword.getText().toString().isEmpty()) {
+        } else if (ValidationUtils.isInputValid(workerPassword.getText().toString())) {
             workerPassword.setError(getText(R.string.you_must_input_something));
         } else {
 

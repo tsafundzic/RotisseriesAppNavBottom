@@ -3,7 +3,6 @@ package com.tsafundzic.rotisseriesappnavbottom.customer;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.tsafundzic.rotisseriesappnavbottom.utils.BaseFragment;
 import com.tsafundzic.rotisseriesappnavbottom.R;
 import com.tsafundzic.rotisseriesappnavbottom.data.DataHolder;
 import com.tsafundzic.rotisseriesappnavbottom.model.Customer;
@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CustomerBuyProductsFragment extends Fragment implements View.OnClickListener {
+public class CustomerBuyProductsFragment extends BaseFragment implements View.OnClickListener {
 
     Button buyProducts;
     RecyclerView recyclerView;
@@ -76,10 +76,7 @@ public class CustomerBuyProductsFragment extends Fragment implements View.OnClic
             DataHolder.getInstance().setCustomerBalance(loggedCustomer, currentCustomerBalance - totalPrice);
             Toast.makeText(getActivity(), R.string.successful, Toast.LENGTH_SHORT).show();
 
-            Fragment fragment = new CustomerBalanceFragment();
-            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragmentFrameCustomerChooser, fragment);
-            fragmentTransaction.commit();
+            BaseFragment.changeFragments(R.id.fragmentFrameCustomerChooser, new CustomerBalanceFragment(), getActivity());
 
         } else {
             Toast.makeText(getActivity(), R.string.you_dont_have_money, Toast.LENGTH_SHORT).show();

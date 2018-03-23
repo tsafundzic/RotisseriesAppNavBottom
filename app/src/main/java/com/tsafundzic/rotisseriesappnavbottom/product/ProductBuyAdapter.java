@@ -20,8 +20,9 @@ import java.util.List;
 
 public class ProductBuyAdapter extends RecyclerView.Adapter<ProductBuyAdapter.ViewHolder> {
 
-    List<Product> products = DataHolder.getInstance().getProducts();
-    List<ProductAmount> productAmounts = DataHolder.getInstance().getProductAmounts();
+    private List<Product> products = DataHolder.getInstance().getProducts();
+    private List<ProductAmount> productAmounts = DataHolder.getInstance().getProductAmounts();
+    private Product product;
 
     @Override
     public ProductBuyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -33,9 +34,10 @@ public class ProductBuyAdapter extends RecyclerView.Adapter<ProductBuyAdapter.Vi
 
     @Override
     public void onBindViewHolder(ProductBuyAdapter.ViewHolder holder, int position) {
+        product = products.get(position);
 
-        holder.productName.setText(products.get(position).getProductName());
-        holder.productPrice.setText(String.valueOf(products.get(position).getProductPrice()));
+        holder.productName.setText(product.getProductName());
+        holder.productPrice.setText(String.valueOf(product.getProductPrice()));
 
     }
 
@@ -67,7 +69,7 @@ public class ProductBuyAdapter extends RecyclerView.Adapter<ProductBuyAdapter.Vi
                     numberOfProduct++;
                     productAmount.setText(String.valueOf(numberOfProduct));
 
-                    ProductAmount productAmount = new ProductAmount(getAdapterPosition(), products.get(getAdapterPosition()).getProductName(), products.get(getAdapterPosition()).getProductPrice(), 1);
+                    ProductAmount productAmount = new ProductAmount(product.getProductID(),product.getProductName(), product.getProductPrice(), 1);
                     productAmounts.add(productAmount);
                 }
             });

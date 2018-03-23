@@ -60,7 +60,7 @@ public class CustomerAddMoneyToBalanceFragment extends BaseFragment implements V
             customer.setBalance(currentCustomerBalance + moneyAmountToAdd);
             Toast.makeText(getActivity(), R.string.successful, Toast.LENGTH_SHORT).show();
 
-            BaseFragment.changeFragments(R.id.fragmentFrameCustomerChooser, new CustomerBalanceFragment(), getActivity());
+            changeFragments(R.id.fragmentFrameCustomerChooser, new CustomerBalanceFragment(), getActivity());
         }
     }
 }

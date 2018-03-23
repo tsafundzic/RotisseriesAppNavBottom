@@ -45,12 +45,12 @@ public class CustomerRegistrationFragment extends BaseFragment implements View.O
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        customerID = getView().findViewById(R.id.tvCustomerID);
-        customerName = getView().findViewById(R.id.etCustomerName);
-        customerSurname = getView().findViewById(R.id.etCustomerSurname);
-        customerPassword = getView().findViewById(R.id.etCustomerPasswordFirst);
-        customerPasswordAgain = getView().findViewById(R.id.etCustomerPasswordAgain);
-        customerRegistration = getView().findViewById(R.id.btnCustomerLogin);
+        customerID = view.findViewById(R.id.tvCustomerID);
+        customerName = view.findViewById(R.id.etCustomerName);
+        customerSurname = view.findViewById(R.id.etCustomerSurname);
+        customerPassword = view.findViewById(R.id.etCustomerPasswordFirst);
+        customerPasswordAgain = view.findViewById(R.id.etCustomerPasswordAgain);
+        customerRegistration = view.findViewById(R.id.btnCustomerLogin);
 
         customerID.setText(String.valueOf(DataHolder.getInstance().getCustomersSize() + 1));
 
@@ -68,11 +68,14 @@ public class CustomerRegistrationFragment extends BaseFragment implements View.O
         } else if (ValidationUtils.isInputValid(customerPasswordAgain.getText().toString())) {
             customerPasswordAgain.setError(getText(R.string.you_must_input_something));
         } else if (customerPassword.getText().toString().equals(customerPasswordAgain.getText().toString())) {
-            Customer customer = new Customer(DataHolder.getInstance().getCustomersSize() + 1, customerName.getText().toString(), customerSurname.getText().toString(), customerPassword.getText().toString(), 0);
+
+            Customer customer = new Customer(DataHolder.getInstance().getCustomersSize() + 1,
+                    customerName.getText().toString(), customerSurname.getText().toString(),
+                    customerPassword.getText().toString(), 0);
             DataHolder.getInstance().addNewCustomer(customer);
             Toast.makeText(getContext(), R.string.new_cutomer_created, Toast.LENGTH_SHORT).show();
 
-            BaseFragment.changeFragments(R.id.fragmentFrameHome, new CustomerLoginFragment(), getActivity());
+            changeFragments(R.id.fragmentFrameHome, new CustomerLoginFragment(), getActivity());
 
         } else {
             Toast.makeText(getContext(), R.string.password_doesnt_match, Toast.LENGTH_SHORT).show();

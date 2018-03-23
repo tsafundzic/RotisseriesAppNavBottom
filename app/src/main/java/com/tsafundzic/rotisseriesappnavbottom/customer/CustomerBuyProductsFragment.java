@@ -50,16 +50,20 @@ public class CustomerBuyProductsFragment extends BaseFragment implements View.On
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        recyclerView = view.findViewById(R.id.rvProductList);
+        initUI(view);
+        setAdapter();
+    }
 
+    private void setAdapter() {
         recyclerView.setHasFixedSize(true);
-
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-
         adapter = new ProductBuyAdapter();
         recyclerView.setAdapter(adapter);
+    }
 
+    private void initUI(View view) {
+        recyclerView = view.findViewById(R.id.rvProductList);
         buyProducts = view.findViewById(R.id.btnBuySelectedProducts);
         buyProducts.setOnClickListener(this);
     }
@@ -82,7 +86,6 @@ public class CustomerBuyProductsFragment extends BaseFragment implements View.On
             Toast.makeText(getActivity(), R.string.you_dont_have_money, Toast.LENGTH_SHORT).show();
         }
 
-
-        productAmounts.removeAll(productAmounts);
+        productAmounts.clear();
     }
 }

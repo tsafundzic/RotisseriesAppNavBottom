@@ -19,7 +19,7 @@ import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
-    List<Product> products = DataHolder.getInstance().getProducts();
+   private List<Product> products = DataHolder.getInstance().getProducts();
 
     @Override
     public ProductAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

@@ -11,7 +11,7 @@ import com.tsafundzic.rotisseriesappnavbottom.customer.CustomerBuyProductsFragme
 import com.tsafundzic.rotisseriesappnavbottom.utils.BaseActivity;
 
 
-public class CustomerChooserActivity extends BaseActivity {
+public class CustomerChooserActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,32 +23,27 @@ public class CustomerChooserActivity extends BaseActivity {
 
     private void setUI() {
         setTitle(R.string.check_balance);
-
         changeFragments(R.id.fragmentFrameCustomerChooser, new CustomerBalanceFragment(), this);
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.customerChooserNavigationBottom);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+    }
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(
-                new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.menuCheckBalance:
-                                setTitle(R.string.check_balance);
-                                changeFragments(R.id.fragmentFrameCustomerChooser, new CustomerBalanceFragment(), CustomerChooserActivity.this);
-                                break;
-                            case R.id.menuAddMoneyToBalance:
-                                setTitle(R.string.add_money);
-                                changeFragments(R.id.fragmentFrameCustomerChooser, new CustomerAddMoneyToBalanceFragment(), CustomerChooserActivity.this);
-                                break;
-                            case R.id.menuBuyProducts:
-                                setTitle(R.string.buy_products);
-                                changeFragments(R.id.fragmentFrameCustomerChooser, new CustomerBuyProductsFragment(), CustomerChooserActivity.this);
-                                break;
-                        }
-                        return true;
-                    }
-                });
-
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuCheckBalance:
+                setTitle(R.string.check_balance);
+                changeFragments(R.id.fragmentFrameCustomerChooser, new CustomerBalanceFragment(), CustomerChooserActivity.this);
+                break;
+            case R.id.menuAddMoneyToBalance:
+                setTitle(R.string.add_money);
+                changeFragments(R.id.fragmentFrameCustomerChooser, new CustomerAddMoneyToBalanceFragment(), CustomerChooserActivity.this);
+                break;
+            case R.id.menuBuyProducts:
+                setTitle(R.string.buy_products);
+                changeFragments(R.id.fragmentFrameCustomerChooser, new CustomerBuyProductsFragment(), CustomerChooserActivity.this);
+                break;
+        }
+        return true;
     }
 }
